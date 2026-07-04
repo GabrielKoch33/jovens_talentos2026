@@ -281,13 +281,6 @@ SELECT *
  WHERE imvdescricao LIKE '%MISTA%' 
    AND logcodigo <> 10;
 
-SELECT * 
-  FROM treina.tbpessoa
- WHERE pessexo = 2 
- ORDER BY pesnome
- LIMIT 2
-OFFSET 2;
-
 
 /*
 4. Efetue as seguintes consultas:
@@ -297,6 +290,21 @@ b. Selecione todos os registros de taxa com valor maior que R$ 80,00,
 renomeie as colunas, ordene o resultado de forma decrescente em relação
 a coluna de valor, não apresente o registro com a maior taxa.
 */
+SELECT * 
+  FROM treina.tbpessoa
+ WHERE pessexo = 2 
+ ORDER BY pesnome
+ LIMIT 2
+OFFSET 2;
+
+SELECT pescodigo AS "Código Pessoa",
+       imvcodigo AS "Código Imóvel",
+       taxcodigo AS "Código Taxa",
+       taxvalor AS "Valor Taxa"
+  FROM treina.tbtaxa
+ WHERE taxvalor > 80
+ ORDER BY taxvalor DESC
+OFFSET 1;
 
 /*
 5. Utilizando as funções fornecidas pelo SQL, realize os seguintes exercícios:
@@ -308,3 +316,14 @@ imóveis
 */
 
 
+SELECT MIN(imvlargura)
+  FROM treina.tbimovel
+ ORDER BY MIN(imvlargura)
+ LIMIT 1; 
+
+SELECT COUNT(*)
+  FROM treina.tbimovel
+ WHERE imvdescricao LIKE '%ALVENARIA%';
+
+SELECT ROUND(AVG(imvcomprimento),2)
+  FROM treina.tbimovel;
