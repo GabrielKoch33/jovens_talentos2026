@@ -199,13 +199,14 @@ SELECT pescodigo AS "Código da Pessoa",
 7. Faça uma seleção que retorne apenas tipos únicos de logradouro.
 */
 
-SELECT DISTINCT(logtipo)
-  FROM treina.tblogradouro;
-
+SELECT logtipo
+  FROM treina.tblogradouro
+ GROUP BY logtipo;
 /*8. Faça umacontagem naquantidade de registros distintos de descrição de contato.*/
 
-SELECT COUNT(DISTINCT(ctpdescricao))
-  FROM treina.tbpessoacontato;
+SELECT ctpdescricao, COUNT(*)
+  FROM treina.tbpessoacontato
+ GROUP BY ctpdescricao
 
 --lista 3
 /*
@@ -315,7 +316,6 @@ c. Realize uma consulta que retorne a média do comprimento de todos os
 imóveis
 */
 
-
 SELECT MIN(imvlargura)
   FROM treina.tbimovel
  ORDER BY MIN(imvlargura)
@@ -327,3 +327,70 @@ SELECT COUNT(*)
 
 SELECT ROUND(AVG(imvcomprimento),2)
   FROM treina.tbimovel;
+
+/*
+1.Realize uma consulta que retorne apenas o “Nome da Pessoa”, o “Tipo do
+Logradouro” e a “Descrição do Logradouro”, relacionando as tabelas com o JOIN.
+Apresente apenas os logradouros que estão relacionados a pessoas.
+*/
+SELECT pesnome AS "Nome da Pessoa",
+       tblogradouro.logtipo AS "Tipo Logradouro",
+       tblogradouro.logdescricao AS "Descrição Logradouro"
+  FROM treina.tbpessoa
+  JOIN treina.tblogradouro 
+    ON tblogradouro.logcodigo = tbpessoa.logcodigo;
+/*
+2. Consulte as pessoas e seus respectivos imóveis, exibindo as colunas de nome da
+pessoa, código do imóvel e descrição do imóvel, inclusive das pessoas que não
+possuem imóvel.*/
+SELECT pesnome AS "Nome",
+       tbimovel.imvcodigo AS "Código Imóvel",
+       tbimovel.imvdescricao AS "Descrição Imóvel"
+  FROM treina.tbpessoa
+  LEFT JOIN treina.tbpessoaimovel 
+    ON tbpessoaimovel.pescodigo = tbpessoa.pescodigo 
+  LEFT JOIN treina.tbimovel 
+    ON tbimovel.imvcodigo = tbpessoaimovel.imvcodigo;
+/*
+3. Faça uma consulta que traga o nome das pessoas, o tipo de contato e número de
+contato, de todas as pessoas que possuem celular com o DDD 47. Ordene pelo
+nome das pessoas.*/
+
+SELECT pesnome,
+       tbpessoacontato.ctpdescricao,
+       tbpessoacontato.ctpnumero
+  FROM treina.tbpessoa
+  LEFT JOIN treina.tbpessoacontato 
+    ON tbpessoacontato.pescodigo = tbpessoa.pescodigo
+ WHERE tbpessoacontato.ctpnumero LIKE '47%';
+/*
+4. Faça uma consulta relacionando todas as tabelas, exibindo as colunas: nome da
+pessoa, número de contato dela, descrição de seu imóvel, área do imóvel, tipo do
+logradouro do imóvel, descrição do logradouro do imóvel. Ordene pelo nome das
+pessoas.*/
+SELECT pes.pesnome,
+       ctt.ctpnumero,
+       imov.imvdescricao,
+       ROUND((imov.imvlargura * imov.imvcomprimento),2) AS "Área",
+       logr.logtipo,
+       logr.logdescricao
+  FROM treina.tbpessoa AS pes
+  LEFT JOIN treina.tbpessoacontato AS ctt
+    ON ctt.pescodigo = pes.pescodigo
+  LEFT JOIN treina.tbpessoaimovel AS pesimo
+    ON pesimo.pescodigo = pes.pescodigo
+  LEFT JOIN treina.tbimovel AS imov
+    ON imov.imvcodigo = pesimo.imvcodigo
+  LEFT JOIN treina.tblogradouro AS logr
+    ON logr.logcodigo = imov.logcodigo;
+/*
+5. Realize uma consulta que retorne o nome das pessoas e a quantidade de contatos
+que cada uma possui (se não possuir contatos deve aparecer como 0).
+*/
+
+SELECT nome.pesnome,
+       COUNT(nome.pesnome) AS "QtdContato"
+  FROM treina.tbpessoa AS "nome"
+ INNER JOIN treina.tbpessoacontato AS "ctt"
+    ON ctt.pescodigo = nome.pescodigo
+ GROUP BY nome.pesnome;
