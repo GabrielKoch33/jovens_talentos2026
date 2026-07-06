@@ -401,21 +401,21 @@ SELECT nome.pesnome,
 
 --1
 INSERT INTO treina.tblogradouro 
-       (logtipo, logdescricao)
-VALUES ('TRAVESSA', 'CINCO'),
-       ('AVENIDA','CINCO'),
-       ('AVENIDA','SEIS'),
-       ('RUA','CINCO');
+            (logtipo, logdescricao)
+     VALUES ('TRAVESSA', 'CINCO'),
+            ('AVENIDA','CINCO'),
+            ('AVENIDA','SEIS'),
+            ('RUA','CINCO');
 
 --2
 -- pessexo = 1 HOMEM, pessexo = 3 cnpj
 -- pestipo = 2 PJ
 INSERT INTO treina.tbpessoa
-       (pesnome,pessexo,pestipo,logcodigo)
-VALUES ('ANTONIO WILSON',1,1,13),
-       ('ELISANE PORTELA',2,1,14),
-       ('FERNANDES DE SOUSA',1,1,15),
-       ('MERCEARIA',3,2,16);
+            (pesnome,pessexo,pestipo,logcodigo)
+     VALUES ('ANTONIO WILSON',1,1,13),
+            ('ELISANE PORTELA',2,1,14),
+            ('FERNANDES DE SOUSA',1,1,15),
+            ('MERCEARIA',3,2,16);
 
 --3
 INSERT INTO treina.tbpessoacontato
@@ -423,16 +423,16 @@ INSERT INTO treina.tbpessoacontato
 VALUES (19,'47-3522-1361','FIXO',258);
 
 INSERT INTO treina.tbpessoacontato
-       (pescodigo,ctpnumero,ctpdescricao)
-VALUES (17,'47-99635-1425','CELULAR'),
-       (18,'48-98868-3313','CELULAR'),
-       (18,'47-99889-2559','CELULAR'),
-       (20,'47-3539-3258','FIXO');
+            (pescodigo,ctpnumero,ctpdescricao)
+     VALUES (17,'47-99635-1425','CELULAR'),
+            (18,'48-98868-3313','CELULAR'),
+            (18,'47-99889-2559','CELULAR'),
+            (20,'47-3539-3258','FIXO');
 
 --4
 INSERT INTO treina.tbimovel
             (imvdescricao, imvlargura, imvcomprimento, logcodigo)
-VALUES      ('CASA DE MADEIRA 5', 13, 14, 13),
+     VALUES ('CASA DE MADEIRA 5', 13, 14, 13),
             ('CASA DE ALVENARIA 5', 15, 19, 14),
             ('CASA DE MADEIRA 6', 14, 15, 15),
             ('CASA DE ALVENARIA 6', 17, 14, 16),
@@ -445,7 +445,7 @@ SELECT * FROM treina.tblogradouro;
 --5
 INSERT INTO treina.tbpessoaimovel
             (pescodigo, imvcodigo)
-VALUES      (25,15),
+     VALUES (25,15),
             (26,17),
             (28,15),
             (28,14);
@@ -454,7 +454,7 @@ VALUES      (25,15),
 
 INSERT INTO treina.tbtaxa
             (pescodigo,imvcodigo,taxvalor)
-VALUES      (25,15,321.00),
+     VALUES (25,15,321.00),
             (26,17,1000.00),
             (28,15,173.80),
             (28,15,0.00);
