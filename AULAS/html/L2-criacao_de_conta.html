@@ -6,34 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <table style="border-collapse: collapse;">
-        <th>
-            <h1> Cria a sua conta aqui</h1>
-            <form action="teste.php">
-                <label for="email">E-Mail: </label>
-                <input type="email" name="email" id="email"><br>
-                <br>
+        <h1> Cria a sua conta aqui</h1>
+        <form action="teste.php">
+            <label for="email">E-Mail: </label><br>
+            <input type="email" name="email" id="email"><br>
+            <br>
 
-                <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha"><br>
-                <br>
+            <label for="senha">Senha: </label><br>
+            <input type="password" name="senha" id="senha"><br>
+            <br>
 
-                <label for="idade">Idade: </label>
-                <input type="search" name="idade" id="idade"><br>
-                <br>
+            <label for="idade">Idade: </label><br>
+            <input type="search" name="idade" id="idade"><br>
+            <br>
 
-                <label for="aboutyou">Conte mais sobre você: </label><br>
-                <input type="" name="aboutyou" id="aboutyou"  rows="8" cols="50" ><br>
-                <br>
+            <label for="aboutyou">Conte mais sobre você: </label><br>
+            <textarea name="aboutyou" id="aboutyou" cols="50" rows="20"></textarea>
+            <br>
 
-                <label for="validacao"> Eu concordo com os <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy">termos de serviço</a></label>
-                <input type="checkbox" name="validacao" id="validacao">
-                <br>
-                
-                <input type="submit" name="enviar" id="enviar" placeholder="Inscrever-se">
-            </form>
-        </th>
-    </table>
+            <input type="checkbox" name="validacao" id="validacao">
+            <label for="validacao"> Eu concordo com os <a target="_blank" href="LE2-termos.html">termos de serviço</a></label>
+            <br>
+            <br>    
+            <button type="submit">Inscrever-se</button>
+        </form>
 </body>
 </html>
 
