@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="border-collapse: collapse;">
+        <th>
+            <h1> Cria a sua conta aqui</h1>
+            <form action="teste.php">
+                <label for="email">E-Mail: </label>
+                <input type="email" name="email" id="email"><br>
+                <br>
+
+                <label for="senha">Senha: </label>
+                <input type="password" name="senha" id="senha"><br>
+                <br>
+
+                <label for="idade">Idade: </label>
+                <input type="search" name="idade" id="idade"><br>
+                <br>
+
+                <label for="aboutyou">Conte mais sobre você: </label><br>
+                <input type="" name="aboutyou" id="aboutyou"  rows="8" cols="50" ><br>
+                <br>
+
+                <label for="validacao"> Eu concordo com os <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy">termos de serviço</a></label>
+                <input type="checkbox" name="validacao" id="validacao">
+                <br>
+                
+                <input type="submit" name="enviar" id="enviar" placeholder="Inscrever-se">
+            </form>
+        </th>
+    </table>
+</body>
+</html>
+
+<!-- 
+input define o tipo de dados de entrada
+campo id deve ser unico para cada elemento
+campo name deve ser igual ao id 
+o 'for' da 'label' deve ser igual ao id 
+submit envia dados para BEnd
+-->
