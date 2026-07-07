@@ -6,32 +6,44 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>PIZZA DO MANO</h1>
+    <h1 style="justify-content: center;">PIZZA DO MANO</h1>
     <form action="teste.php"; method="post">
         <fieldset>
-
-            <h2> CLIENTE</h2>
-            <label for="nome">Seu nome:</label>
-            <input type="text" name="nome" id="nome">
-            
-            <label for="endereco">Seu endereço</label>
-            <input type="text" name="endereco" id="endereco">
-
-            <label for="numendereco">Número endereço</label>
-            <input type="number" name=""numendereco id="numendereco">
-
-            <label for="bairro">Seu bairro: </label>
-            <input type="text" name="bairro" id="bairro">
-
-            <label for="cidade">Sua cidade: </label>
-            <input type="text" name="cidade" id="cidade">
-
-            <label for="telefone">Seu telefone:</label>
-            <input type="tel" name="telefone" id="telefone">
-
-            <label for="email">Seu Email: </label>
-            <input type="email" name="email" id="email">
-
+                <h2> CLIENTE</h2>
+                
+                <label for="nome">Seu nome:</label>
+                <br>
+                <input type="text" name="nome" id="nome">
+                <br>
+                <br>
+                <label for="endereco">Seu endereço</label>
+                <br>
+                <input type="text" name="endereco" id="endereco">
+                <br>
+                <br>
+                <label for="numendereco">Número endereço</label>
+                <br>
+                <input type="number" name=""numendereco id="numendereco">
+                <br>
+                <br>
+                <label for="bairro">Seu bairro: </label>
+                <br>
+                <input type="text" name="bairro" id="bairro">
+                <br>
+                <br>
+                <label for="cidade">Sua cidade: </label>
+                <br>
+                <input type="text" name="cidade" id="cidade">
+                <br>
+                <br>
+                <label for="telefone">Seu telefone:</label>
+                <br>
+                <input type="tel" name="telefone" id="telefone">
+                <br>
+                <br>
+                <label for="email">Seu Email: </label>
+                <br>
+                <input type="email" name="email" id="email">
         </fieldset>
     <br>
         <fieldset>
@@ -78,20 +90,28 @@
 
                 <input type="radio" name="borda" id="borda">
                 <label for="borda"> Sem Borda </label>
-
-                <label for="">Observações: </label>
-                <input type="text" name="obs" id="obs" maxlength="100" placeholder="Digite Aqui...">
-
+                <br>
+                <br>
+                <label for="obs"><b>Observações:</b> </label>
+                <br>
+                <textarea name="aboutyou" id="aboutyou" cols="30" rows="5" placeholder="Digite aqui..."></textarea>
         </fieldset>
     <br>
     <fieldset>
             <h2> PAGAMENTO</h2>
-    </fieldset>
 
-    <fieldset>
-            <h2> PIZZA</h2>
-    </fieldset>
+            <input type="radio" name="pay" id="pay">
+            <label for="pay"> Dinheiro </label>
 
+            
+            <input type="radio" name="pay" id="pay">
+            <label for="pay"> Cartão</label>
+
+            
+            <input type="radio" name="pay" id="pay">
+            <label for="pay"> Cheque</label>
+    </fieldset>
+    <br>
     <fieldset>
         <input type="submit" name="envia" id="envia" placeholder="Enviar Pedido">
     </fieldset>
