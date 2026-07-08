@@ -441,6 +441,8 @@ INSERT INTO treina.tbimovel
 SELECT * FROM treina.tbimovel;
 SELECT * FROM treina.tbpessoa;
 SELECT * FROM treina.tblogradouro;
+SELECT * FROM treina.tbtaxa;
+SELECT * FROM treina.tbpessoaimovel;
 
 --5
 INSERT INTO treina.tbpessoaimovel
@@ -478,6 +480,13 @@ UPDATE treina.tbimovel
  WHERE imvcodigo = 8;
 
 --8 
+--a casa madeira larg > 15
+SELECT imvcodigo
+  FROM treina.tbimovel
+ WHERE imvlargura > 15;
+-- Não há;
+
+--b
 DELETE FROM treina.tbpessoa
       WHERE pescodigo = 5;
 

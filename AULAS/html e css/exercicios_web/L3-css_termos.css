@@ -1,0 +1,17 @@
+.fonte_arial_red {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.times_22_verde {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22;
+    color: darkgreen;
+}
+
+.comic_20_blue_italic {
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+    font-size: 20;
+    color: blue;
+    font-style: italic;
+}

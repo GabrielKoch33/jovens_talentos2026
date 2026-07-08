@@ -1,0 +1,13 @@
+.p_teste {
+    background-color: lightgreen;
+}
+
+.fundo {
+    margin: auto;
+    width: 50%;
+}
+
+.imagem {
+    background-image: url(https://medias.revistaoeste.com/wp-content/uploads/2025/02/vampeta-tvpop-672x370.jpg.webp);
+    background-repeat: no-repeat;
+}
