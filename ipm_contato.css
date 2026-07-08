@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    background-color: rgb(233, 12, 12);
+    
+}
+
+.fundo-branco {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 230px; /* imagens têm altura natural, mas div não, então você precisa dizer a altura */
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
