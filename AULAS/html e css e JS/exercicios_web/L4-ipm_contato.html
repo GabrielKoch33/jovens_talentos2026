@@ -1,56 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="ipm_contato.css">
-</head>
 <body>
-    <div>
-        <div class="fundo-branco"></div>
-        <img src="ipmsistemas_logo.jpg" class="logo">
-    </div>
-    <h2> Onde nos encontrar: </h2>
-    <div class="adm">
-        <p>Sede Administrativa - Florianópolis, SC</p>
-        <p>Rua Cristóvão Nunes Pires, 86</p><br>
-        <p>Torre Süden, 6o Andar</p>
-        <p>48 3031 7500</p>
-    </div>
-    <br>
-    <div class="tec">
-        <p>Centro de Tecnologia - Rio do Sul, SC</p>
-        <p>Rua Duque de Caxias, 180</p><br>
-        <p>Jardim América</p>
-        <p>47 3531 1500</p>
-    </div>
-    <div class="formulario">
-        <form action="php.php" method="post">
-            <label for="nome">Nome Completo: </label>
-            <br>
-            <input type="text" name="nome" id="nome">
-            <br>
-            <label for="email">Email: </label>
-            <br>
-            <input type="email" name="email" id="email">
-            <label for="telefone">Telefone:</label>
 
-            <label for="cidade">Cidade: </label>
+    <header class="painel">
+        <img src="ipmsistemas_logo.jpg" class="logo" alt="Logo IPM">
+    </header>
 
-            <label for="estado">Estado: </label>
-            <br>
-            <label for="telefone">Cargo:</label>
+    <main class="conteudo">
 
-            <label for="cidade">Setor de Atuação: </label>
+        <section class="enderecos">
 
-            <label for="estado">Entidade: </label>
+            <h2>Onde nos encontrar</h2>
 
-            <label for="telefone">Mensagem: </label>
+            <div class="localizacao">
+                <h3>Sede Administrativa - Florianópolis, SC</h3>
+                <p>Rua Cristóvão Nunes Pires, 86</p>
+                <p>Torre Süden, 6º Andar</p>
+                <p>(48) 3031-7500</p>
+            </div>
 
-            <label for="clienteDificuldae">Você é um cliente com dificuldade?</label>
-        </form>
+            <div class="localizacao">
+                <h3>Centro de Tecnologia - Rio do Sul, SC</h3>
+                <p>Rua Duque de Caxias, 180</p>
+                <p>Jardim América</p>
+                <p>(47) 3531-1500</p>
+            </div>
 
-    </div>
+        </section>
+
+        <section class="formulario">
+
+            <h2>Entre em contato</h2>
+
+            <form action="php.php" method="post">
+
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email">
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone">
+
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade">
+
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado">
+
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" name="cargo">
+
+                <label for="setor">Setor de Atuação</label>
+                <input type="text" id="setor" name="setor">
+
+                <label for="entidade">Entidade</label>
+                <input type="text" id="entidade" name="entidade">
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" rows="5"></textarea>
+
+                <label>
+                    <input type="checkbox">
+                    Você é um cliente com dificuldade?
+                </label>
+
+                <button type="submit">Enviar</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
 </body>
-</html>

@@ -1,52 +1,59 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Painel vermelho superior */
+.painel {
     background-color: rgb(233, 12, 12);
-    
+    height: 180px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
 }
 
-.fundo-branco {
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 230px; /* imagens têm altura natural, mas div não, então você precisa dizer a altura */
-}
-
+/* Logo */
 .logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+    height: 120px;
+}
+
+/* Conteúdo */
+.conteudo {
+    padding: 40px;
 }
 
 h1 {
-  margin: 50px;
-  background-color: white;
-  padding: 10px;
-  width: 500px;
-  border-radius: 15px;
+    background-color: white;
+    padding: 15px;
+    width: fit-content;
+    border-radius: 12px;
+    margin-bottom: 30px;
 }
 
-.main_text{
-  margin: 30px;
-  background-color: white;
-  border-radius: 15px;
-  padding: 50px;
+.main_text {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
+/* Rodapé */
 .rodape {
     background-color: black;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-.links_ {
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  margin: 5px;
-}
-
-.conteiner {
-  background-color: black;
-  padding: 0;
+.rodape a {
+    color: white;
+    text-decoration: none;
 }
