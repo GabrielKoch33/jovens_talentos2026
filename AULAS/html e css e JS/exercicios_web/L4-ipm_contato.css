@@ -25,11 +25,8 @@ body{
     height:120px;
 }
 
-/* Conteúdo */
-
 .conteudo{
-    display:flex;
-    justify-content:space-between;
+    display:flex; /*deixa os itens lado a lado*/
     align-items:flex-start;
 
     gap:50px;
@@ -90,6 +87,5 @@ button{
     border:none;
     border-radius:6px;
     background:#e90c0c;
-    color:white;
-    cursor:pointer;
+    color:white;;
 }
