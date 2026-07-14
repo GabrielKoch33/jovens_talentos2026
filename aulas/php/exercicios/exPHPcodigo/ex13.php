@@ -21,7 +21,7 @@
             } else {
                 $aNumbers = explode(",",$sNum);
                 foreach ($aNumbers as &$iArrayValues){
-                    $iArrayValues (int)*= 2;
+                    (int)$iArrayValues*= 2;
                 }
             unset($iArrayValues);# & passa o array por referencia, unset encerra a referencia
             print_r($aNumbers);            
