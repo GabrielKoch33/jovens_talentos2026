@@ -9,7 +9,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Painel vermelho superior */
+/* Painel vermelho */
 .painel {
     background-color: rgb(233, 12, 12);
     height: 180px;
@@ -18,12 +18,12 @@ body {
     padding-left: 30px;
 }
 
-/* Logo */
+
 .logo {
     height: 120px;
 }
 
-/* Conteúdo */
+
 .conteudo {
     padding: 40px;
 }
@@ -45,7 +45,7 @@ h1 {
     line-height: 1.6;
 }
 
-/* Rodapé */
+
 .rodape {
     background-color: black;
     color: white;

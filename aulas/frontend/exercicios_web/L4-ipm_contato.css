@@ -6,19 +6,15 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f5f5f5;
+    background:white; 
 }
 
-/* Header */
 
 .painel{
     background:#e90c0c;
     height:180px;
-
     display:flex;
     align-items:center;
-
-    padding-left:30px;
 }
 
 .logo{
@@ -28,20 +24,16 @@ body{
 .conteudo{
     display:flex; /*deixa os itens lado a lado*/
     align-items:flex-start;
-
     gap:50px;
-
     padding:40px;
 }
 
-/* Coluna esquerda */
 
 .enderecos{
     width:35%;
 }
 
 .localizacao{
-    background:white;
     padding:25px;
     border-radius:12px;
     margin-top:25px;
@@ -55,13 +47,9 @@ body{
     margin-bottom:8px;
 }
 
-/* Coluna direita */
-
 .formulario{
     width:65%;
-    background:white;
     padding:30px;
-    border-radius:12px;
 }
 
 .formulario form{
@@ -77,15 +65,4 @@ body{
 .formulario input,
 .formulario textarea{
     padding:10px;
-    border:1px solid #ccc;
-    border-radius:6px;
-}
-
-button{
-    margin-top:25px;
-    padding:12px;
-    border:none;
-    border-radius:6px;
-    background:#e90c0c;
-    color:white;;
 }
