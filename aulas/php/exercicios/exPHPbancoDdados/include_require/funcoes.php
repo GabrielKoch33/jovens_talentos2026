@@ -57,17 +57,11 @@ function montaCheckbox($aRefArray,$sRefCampo,$bRefEscolha,$mElementoPadrao){
     }
 };
 
-function montaInput($sName,$sId,$);
-$aTiposInputs = [
-    'text',
-    'password',
-    'radio',
-    'checkbox',
-    'color',
-    'email',
-    'number',
-    'tel',
-]
-#<input type="text" id="nome" name="nome">
-
+function montaInput($sCampoNome,$sCampoTipo,$iQuantidadeInputs){
+    echo "<label for='".$sCampoNome."'> INPUT </label>";
+    for ($i = 1; $i <= $iQuantidadeInputs; $i++ ){
+        echo "<input type='".$sCampoTipo."' name='".$sCampoNome.$i."' id='".$sCampoId.$i."'>";
+    }
+    echo "<input type='submit'>";
+};
 ?>
