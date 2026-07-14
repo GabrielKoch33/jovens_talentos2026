@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="ex1banco.css"></link>
+</head>
+<body>
+    <div class="main_div">
+                <div class="links_tabelas">
+                    <a href="">Categoria |</a>
+                    <a href="">Departamento |</a>
+                    <a href="">Cidade |</a>
+                    <a href="">Cliente |</a>
+                    <a href="">Fornecedor |</a>
+                    <a href="">Funcionário |</a>
+                    <a href="">Produto</a>
+                </div>
+                <div class="listagem_tabela">
+                    <p>Listagem de tabelas</p>
+                    <table >
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Ações</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Trombudo</td>
+                            <td>Deletar</td>
+                        </tr>
+                    </table>
+                </div>
+        <div class="cadastro_tabela">
+                <p>Cadastro de Cidade</p>
+                <table>
+                <tr>
+                    <th>Nome: </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td> <button type="submit"> Enviar </button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+<!-- 1. Para as tabelas de categoria, departamento e cidade: 
+a. Crie uma listagem de todos os registros; 
+b. Desenvolva a funcionalidade de remoção de registros; 
+c. Crie um formulário de cadastro.
+
+$oConexao = conectaBanco();
+$sSelect = 'SELECT * FROM MERCADO.TBCATEGORIA';
+$oResult = pg_query($oConexao,$sSelect);
+$aDados = [];
+while ($aResult = pg_fetch_assoc($oResult)){
+    $aDados[] = $aResult;
+}
+var_dump($aDados); -->
+
+<!-- <?php
+include('conectaBanco.php');
+?> -->
