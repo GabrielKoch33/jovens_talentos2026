@@ -17,5 +17,4 @@ if (is_dir($path)) {
     echo "</ul>";
     return true;
 }
-
 return false; // arquivo existe, deixa o servidor tratar normalmente

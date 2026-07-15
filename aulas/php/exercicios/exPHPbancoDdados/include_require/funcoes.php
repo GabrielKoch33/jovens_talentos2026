@@ -35,7 +35,7 @@ function montaRadio($aRefArray,$sRefCampo,$bRefEscolha,$mElementoPadrao){
     }
 };
 function montaCheckbox($aRefArray,$sRefCampo,$bRefEscolha,$mElementoPadrao){
-    $sTexto = 'Botão Radio';
+    $sTexto = 'Botão Checkbox';
     echo "<label for='$sRefCampo'>". $sTexto ."</label>";
 
     if ($bRefEscolha == 'true'){
@@ -63,5 +63,6 @@ function montaInput($sCampoNome,$sCampoTipo,$iQuantidadeInputs){
         echo "<input type='".$sCampoTipo."' name='".$sCampoNome.$i."' id='".$sCampoId.$i."'>";
     }
     echo "<input type='submit'>";
+    return true;
 };
 ?>

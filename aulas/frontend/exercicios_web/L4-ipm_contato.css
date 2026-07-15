@@ -23,7 +23,6 @@ body{
 
 .conteudo{
     display:flex; /*deixa os itens lado a lado*/
-    align-items:flex-start;
     gap:50px;
     padding:40px;
 }
