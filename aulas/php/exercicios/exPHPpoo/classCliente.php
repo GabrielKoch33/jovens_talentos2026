@@ -12,24 +12,26 @@ class Cliente {
         echo 'Telefone: '. $this->getTelefone() .'<br>';
     }
 
-    public function getCpf(){
-        return $this->ClienteFisica;
-    }
     public function getNome(){
         return $this->nome;
     }
+
     public function getEmail(){
         return $this->email;
     }
+
     public function getTelefone(){
         return $this->telefone;
     }
+
     public function setNome($nome){
         $this->nome = $nome;
     }
+
     public function setEmail($email){
         $this->email = $email;
     }
+
     public function setTelefone($telefone){
         $this->telefone = $telefone;
     }

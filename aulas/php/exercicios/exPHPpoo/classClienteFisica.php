@@ -2,7 +2,7 @@
 require_once 'classCliente.inc';
 
 class ClienteFisica extends Cliente {
-
+    
     private $cpf;
 
     public function getCpf(){
@@ -12,6 +12,5 @@ class ClienteFisica extends Cliente {
     public function setCpf($cpf){
         $this->cpf = $cpf;
     }
-
 }
 ?>
