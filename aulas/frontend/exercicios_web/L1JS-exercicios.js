@@ -9,7 +9,16 @@ function soma(){
     } 
 }
 
-function ocultarDiv(){
+function ocultarDiv(num_div){
+    let div = document.getElementById('div' + num_div);
     
+    if (div.style.visibility == 'hidden'){
+        div.style.visibility = 'visible';
+    } else {
+        div.style.visibility = 'hidden'
+    }
 }
 
+function imprimeArrayDiv(){
+    
+}

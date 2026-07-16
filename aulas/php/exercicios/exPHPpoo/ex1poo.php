@@ -20,7 +20,7 @@
     $oGabriel->setTelefone('123456789');
     $oGabriel->setCpf('083.123.123-56');
 
-    $oProfessor = new ClienteJuridica();
+    $oProfessor = new ClienteJuridico();
     $oProfessor->setNome('Lucas');
     $oProfessor->setEmail('xyz@gmail.com');
     $oProfessor->setTelefone('987654321');

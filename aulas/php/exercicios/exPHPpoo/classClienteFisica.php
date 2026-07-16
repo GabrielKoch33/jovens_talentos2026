@@ -1,5 +1,5 @@
 <?php 
-require_once 'classCliente.inc';
+require_once 'classCliente.php';
 
 class ClienteFisica extends Cliente {
     

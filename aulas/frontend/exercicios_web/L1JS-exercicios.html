@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="L1JS-functions.js"></script>
-    <link rel="stylesheet" href="L1JS-css.css">
+    <script src="L1JS-exercicios.js"></script>
+    <link rel="stylesheet" href="L1JS-exercicios.css">
 </head>
 <body>
     <h1>SOMADOR 3000</h1>
@@ -19,17 +19,22 @@
 
     <div id="div1">
     </div>
-    <button id="div1">Botão DIV 1</button>
+    <button onclick="ocultarDiv('1')">Botão DIV 1</button>
     <br>
     <br>
     <div id="div2">
     </div>
-    <button id="div2">Botão DIV 2</button>
+    <button onclick="ocultarDiv('2')">Botão DIV 2</button>
     <br>
     <br>
     <div id="div3">
     </div>
-    <button id="div3">Botão DIV 3</button>
+    <button onclick="ocultarDiv('3')">Botão DIV 3</button>
     <br>
+    <br>
+    <div id="div_array"></div>
+    <label for="array_num"> DIGITE NUMEROS SEPARADOS POR VÍRGULA</label>
+    <input type="text" name="array_num" id="array_num">
+    <input onclick="imprimeArrayDiv()" name="array_num" id="array_num">
 <body>
 </html>

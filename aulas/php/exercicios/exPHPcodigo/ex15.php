@@ -18,15 +18,15 @@
             if (!$sAlfabeto){
                 echo "nada para exibir";
             } else{
-                $iLetraA = 0;
+                $iLetraContador = 0;
                 $aAlfabeto = explode(",",$sAlfabeto);
                 $iTamArray = count($aAlfabeto);
                 for ($i = 0; $i < $iTamArray; $i++){
                     if (strtoupper($aAlfabeto[$i]) == "A"){
-                        $iLetraA += 1;
+                        $iLetraContador += 1;
                     }
                 }
-                echo "Total de ocorrências da letra A: ". $iLetraA;
+                echo "Total de ocorrências da letra A: ". $iLetraContador;
             }
         }
     }

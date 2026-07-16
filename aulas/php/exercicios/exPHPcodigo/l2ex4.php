@@ -21,9 +21,9 @@
             $iSorteado = rand(MIN_NUM, MAX_NUM);
 
             if ($iEscolhido === $iSorteado){
-                echo "GANHOU! Foi sorteado (" . $iSorteado . ") - VOCÊ GANHOU " . PREMIO;
+                echo "Você ganhou! Foi sorteado o número:". $iSorteado . ". Prêmio:". PREMIO ;
             } else {
-                echo "Você perdeu! Foi sorteado o número (" . $iSorteado . "), e você escolheu o número (" . $iEscolhido . ")";
+                echo "Você perdeu! Foi sorteado o número:". $iSorteado . ", você escolheu o número". $iEscolhido;
             }
         }
     }

@@ -1,20 +1,21 @@
 <?php
-    include 'classContaBancaria.php';
-    include 'classClienteFisica.php';
+    include_once 'classContaBancaria.php';
+    include_once 'classClienteFisica.php';
 
-    $oGabriel = new ClienteFisica();
-    $oGabriel->setNome('Gabriel');
-    $oGabriel->setEmail('123@gmail.com');
-    $oGabriel->setTelefone('123456');
-    $oGabriel->setCpf('123.456.563-80');
+    $oJoao = new ClienteFisica();
+    $oJoao->setNome('João');
+    $oJoao->setEmail('123@gmail.com');
+    $oJoao->setTelefone('123456');
+    $oJoao->setCpf('123.456.563-80');
 
     $oContaBanco = new ContaBancaria();
-    $oContaBanco->setCliente($oGabriel);
+    $oContaBanco->setCliente($oJoao);
     $oContaBanco->setSaldoInicial(500);
-
-    $oContaBanco-
-    $oContaBanco
-    $oContaBanco
+    $oContaBanco->Depositar(400);
+    $oContaBanco->Sacar(100);
+    $oContaBanco->exibeSaldo();
+    $oContaBanco->Depositar(50);
+    $oContaBanco->exibeExtrato();
     
 
 
