@@ -11,13 +11,12 @@ class ProfessorHorista extends Professor{
         $this->iHorasTrabalhadas = $iValorHorasTrabalhadas;
     }
 
-    public function setSalarioPorHora($){
-
+    public function setSalarioPorHora($fSalarioHora){
+        $this->fSalarioHora = $fSalarioHora;
     }
 
-
     public function calculaSalario($fValorSalario){
-        $this->fSalarioFinal = ;
+        $this->fSalarioFinal = $this->iHorasTrabalhadas  * $this->fSalarioHora;
     }
 
 }
