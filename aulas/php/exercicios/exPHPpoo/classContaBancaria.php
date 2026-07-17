@@ -9,9 +9,10 @@ class ContaBancaria {
     private $fSaldoAtual;
     private $aOperacoes = [];
 
-    public function setCliente($clienteDados){
-        $this->Cliente = $clienteDados;
+    public function __construct($oClienteDados){
+        $this->Cliente = $oClienteDados;
     }
+
     public function getCliente(){
         return $this->Cliente;
     }

@@ -14,7 +14,7 @@
     // $oProfessor->telefone = '987654321';
 
 
-//   VERSÃO COM ATRIBUTOS PRIVATE
+//  VERSÃO COM ATRIBUTOS PRIVATE
     $oGabriel->setNome('Gabriel');
     $oGabriel->setEmail('abc@gmail.com');
     $oGabriel->setTelefone('123456789');

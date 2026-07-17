@@ -8,8 +8,7 @@
     $oJoao->setTelefone('123456');
     $oJoao->setCpf('123.456.563-80');
 
-    $oContaBanco = new ContaBancaria();
-    $oContaBanco->setCliente($oJoao);
+    $oContaBanco = new ContaBancaria($oJoao);
     $oContaBanco->setSaldoInicial(500);
     $oContaBanco->Depositar(400);
     $oContaBanco->Sacar(100);
