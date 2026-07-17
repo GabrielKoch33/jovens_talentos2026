@@ -16,7 +16,7 @@ class ProfessorHorista extends Professor{
     }
 
     public function calculaSalario($fValorSalario){
-        $this->fSalarioFinal = $this->iHorasTrabalhadas  * $this->fSalarioHora;
+        return $this->fSalarioFinal = $this->iHorasTrabalhadas  * $this->fSalarioHora;
     }
 
 }

@@ -10,5 +10,9 @@ class ProfessorRegime extends Professor{
         $this->iCargaHoraria = $iValorCargaHoraria;
         $this->fSalario = $fValorSalario;
     }
+
+    public function calculaSalario($fSalario){
+        return $this->fSalario;
+    }
 }
 ?>
