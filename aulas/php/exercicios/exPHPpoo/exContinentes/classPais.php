@@ -9,9 +9,9 @@ class Pais {
     private $paisesFronteiras = [];
 
     public function __construct($varISO,$varNome,$varDimensao){
-        $this->ISO        = $varISO;
-        $this->sNome      = $varNome;
-        $this->fDimensao  = $varDimensao;
+        $this->iso      = $varISO;
+        $this->nome     = $varNome;
+        $this->dimensao = $varDimensao;
     }
 
     public function setIso($varIso){
@@ -66,7 +66,7 @@ class Pais {
 
     public function removePaisFronteira($sNomePaisFronteira){
         foreach($this->paisesFronteiras as $iIndice => $paises){
-            if ($this->getNome() == $sNomePaisFronteira){
+            if ($paises == $sNomePaisFronteira){
                 unset($this->paisesFronteiras[$iIndice]);
                 return $sNomePaisFronteira . ' Foi removido!';
             }
@@ -83,8 +83,13 @@ class Pais {
     }
 
     public function calculaDensidadePopulacional(){
-        $fDensidadePop =  $this->getPopulacao()/$this->getDimensao();
-        return $fDensidadePop;
+        if ($this->getPopulacao() == 0){
+            return 'Campo população em branco, define uma população!';
+        } else {
+            $fDensidadePop =  $this->getPopulacao()/$this->getDimensao();
+            return $fDensidadePop;
+        }
+        
     }
 
     public function retornaVizinhos($oPais){
