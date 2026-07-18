@@ -1,6 +1,6 @@
 <?php
 
-include 'classProfessor';
+include_once 'classProfessor.php';
 class ProfessorRegime extends Professor{
 
     private $iCargaHoraria = 0;

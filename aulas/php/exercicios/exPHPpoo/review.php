@@ -1,5 +1,5 @@
 <?php
-
+/*
 $tipoNomeVariavel;
 $iSomaNumeros;
 
@@ -34,5 +34,5 @@ foreach ($aArray as $sValor){
 foreach ($aArray as $iIndice => $sValor){
     echo 'acessa o indice e o valor; igual enumerate em python'
 }
-
+*/
 ?>

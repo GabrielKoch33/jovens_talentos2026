@@ -1,5 +1,5 @@
 <?php
-require_once('classContaBancaria');
+require_once 'classContaBancaria.php';
 
     class ContaPoupanca extends ContaBancaria {
 

@@ -4,7 +4,7 @@ function conectaBanco(){
     $sPort     = '5432';
     $sDbName   = 'mercado';
     $sUser     = 'postgres';
-    $sPassword = '123';
+    $sPassword = '250107gks';
 
     $sConexao = "host=$sHost
                 port=$sPort

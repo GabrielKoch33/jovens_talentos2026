@@ -1,6 +1,6 @@
 <?php
 
-require_once('classClienteFisica.php');
+require_once 'classClienteFisica.php';
 class ContaBancaria {
 
     private $Cliente;
