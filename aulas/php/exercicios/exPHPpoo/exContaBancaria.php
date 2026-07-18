@@ -15,9 +15,5 @@
     $oContaBanco->exibeSaldo();
     $oContaBanco->Depositar(50);
     $oContaBanco->exibeExtrato();
-    
-
-
-
 
 ?>
