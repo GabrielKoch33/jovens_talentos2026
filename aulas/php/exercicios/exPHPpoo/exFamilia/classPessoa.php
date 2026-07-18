@@ -41,11 +41,7 @@ class Pessoa{
         } else {
             return FALSE;
         }
-    }
-
-    public function verificaParentesco($oPessoaAntecessora){
-        return FALSE;
-    } 
+    }   
 }
 
 ?>
