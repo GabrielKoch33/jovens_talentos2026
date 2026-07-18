@@ -51,15 +51,16 @@ class Pais {
     }
 
     public function paisAtual($oPais){
-        if ($oPais.getIso() == $this->iso){
-            return 'São iguais';
+        if ($oPais->getIso() == $this->getIso()){
+            return 'A ISO de '. $oPais->getNome() .' e '.$this->getNome() .' São Iguais';
         } else {
-            return 'São diferentes';
+            return 'A ISO de '. $oPais->getNome() .' e '.$this->getNome() .' São Diferentes';
         }
     }
 
-    public function inserePaisFronteira(...$aPaises){
-        foreach($aPaises as $paises){
+    public function inserePaisFronteira(...$oPaises){
+        // ...oPaises transforma todos os objetos passados em um array com esses objetos
+        foreach($oPaises as $paises){
             $this->paisesFronteiras[] = $paises;
         }
     }
@@ -71,7 +72,7 @@ class Pais {
                 return $sNomePaisFronteira . ' Foi removido!';
             }
         }
-        return 'País não encontrado, verifique o nome';
+        return $sNomePaisFronteira.' não encontrado, verifique o nome';
     }
 
     public function fazFronteira($sNomePaisFronteira){

@@ -4,7 +4,7 @@ require_once 'classPais.php';
 $oBrasil = new Pais('BRA','Brasil',(float)8510418);
 
 $oBrasil->setPopulacao((float)24000000);
-echo '<hr>';
+
 $oBrasil->inserePaisFronteira('Argentina','Uruguai','Bolívia','Guiana Francesa','Suriname','Chile');
 echo '<hr>';
 echo $oBrasil->retornaVizinhos($oBrasil);
@@ -28,6 +28,8 @@ echo $oRussia->retornaVizinhos($oRussia);
 echo '<hr>';
 echo $oRussia->removePaisFronteira('Argentina');
 echo '<hr>';
+echo $oRussia->removePaisFronteira('Pindamonhangaba');
+echo '<hr>';
 echo $oRussia->retornaVizinhos($oRussia);
 echo '<hr>';
 echo $oRussia->fazFronteira('Austrália');
@@ -35,4 +37,7 @@ echo '<hr>';
 echo $oRussia->calculaDensidadePopulacional();
 echo '<hr>';
 echo $oRussia->paisAtual($oBrasil);
+echo '<hr>';
+
+echo $oRussia->paisAtual($oRussia);
 ?>

@@ -35,4 +35,25 @@ foreach ($aArray as $iIndice => $sValor){
     echo 'acessa o indice e o valor; igual enumerate em python'
 }
 */
+ 
+// CLASSES
+/*
+POLIMORFISMO: 
+Capacidade de classes reaproveitarem funções de outras classes de mesmo nome.
+Caso haja herança e a classe filha possua uma função com o mesmo nome de um metodo da classe pai
+então o método será chamado na classe filha e será sobreescrito pelo metodo da filha
+Caso queiramos que o método não seja sobreescrito usamos: 'parent:: nomeMetodo()'
+
+
+HERANÇA:
+Criação de classes filhas a partir de uma classe superior, quando usamos:
+class Filha extends Pai {...} a classe Filha vai ter acesso a todos os métodos e atributos da classe Pai
+
+COMPOSIÇÃO:
+relação de 'tem um'
+um carro TEM um motor
+class carro{
+    private Motor $motor;
+} 
+*/
 ?>
