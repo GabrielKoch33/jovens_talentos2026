@@ -225,7 +225,7 @@ SELECT *
 SELECT *
   FROM treina.tbpessoa
  WHERE logcodigo = 4 
-	OR logcodigo = 12;
+	  OR logcodigo = 12;
 
 SELECT *
   FROM treina.tbtaxa
@@ -491,4 +491,4 @@ DELETE FROM treina.tbpessoa
       WHERE pescodigo = 5;
 
 DELETE FROM treina.tbpessoacontato
-    WHERE ctpramal = 1537;
+      WHERE ctpramal = 1537;
