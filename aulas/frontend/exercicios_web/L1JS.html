@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Exercícios 1 - JavaScript</title>
+<style>
+  .caixa { width: 100px; height: 100px; display: inline-block; margin-right: 10px; }
+  #div1 { background-color: red; }
+  #div2 { background-color: blue; }
+  #div3 { background-color: green; }
+  #divArray { border: 1px solid black; padding: 10px; width: 150px; font-size: 20px; text-align: center; }
+</style>
+</head>
+<body>
+
+  <!-- 1 -->
+  <input type="number" id="num1">
+  <input type="number" id="num2">
+  <button onclick="somar()">SOMAR</button>
+
+  <hr>
+
+  <!-- 2 -->
+  <div class="caixa" id="div1"></div>
+  <div class="caixa" id="div2"></div>
+  <div class="caixa" id="div3"></div>
+  <br><br>
+  <button onclick="alternar('div1')">Botão 1</button>
+  <button onclick="alternar('div2')">Botão 2</button>
+  <button onclick="alternar('div3')">Botão 3</button>
+
+  <hr>
+
+  <!-- 3 -->
+  <h3>Insira numeros separados por ',' ex: 1,2,3,4,5,6,7,8...</h3>
+  <input type="text" id="numerosArray">
+  <button onclick="mostrarArray()">Mostrar valores</button>
+  <br><br>
+  <div id="divArray"></div>
+
+  <hr>
+
+  <!-- 4 -->
+  <button onclick="criarBotao(this)">Clique para criar um botão abaixo</button>
+  <hr>
+
+  <!-- 5 -->
+  <select id="estadoMental" onchange="mensagemEstadoMental()">
+    <option value="">Selecione</option>
+    <option value="Bem">Bem</option>
+    <option value="Mais ou Menos">Mais ou Menos</option>
+    <option value="Mal">Mal</option>
+  </select>
+  <div id="areaResultado"></div>
+
+
+   <script>
+    function somar() {
+      let num1 = document.getElementById('num1').value;
+      let num2 = document.getElementById('num2').value;
+
+      if (num1 == "" || num2 == "" || isNaN(num1) || isNaN(num2)) {
+        window.alert("Você precisa informar 2 valores numéricos!");
+      } else {
+        let resultado = Number(num1) + Number(num2);
+        window.alert("O resultado da soma é: " + resultado);
+      }
+    }
+
+    function alternar(idDaDiv) {
+      let div = document.getElementById(idDaDiv);
+      if (div.style.display == "none") {
+        div.style.display = "inline-block";
+      } else {
+        div.style.display = "none";
+      }
+    }
+
+    function mostrarArray() {
+      let textoDigitado = document.getElementById('numerosArray').value;
+      let lista = textoDigitado.split(",");
+      let indiceAtual = 0;
+
+      let intervalo = setInterval(function () {
+        document.getElementById("divArray").innerHTML += lista[indiceAtual] + ' ';
+        indiceAtual = indiceAtual + 1;
+
+        if (indiceAtual >= lista.length) {
+          clearInterval(intervalo);
+        }
+      }, 1000);
+    }
+
+  let contador = 0;
+
+  function criarBotao() {
+    contador = contador + 1;
+
+    let novoBotao = document.createElement("button");
+    novoBotao.innerHTML = "Botão " + contador;
+    novoBotao.onclick = criarBotao;
+
+    document.body.appendChild(novoBotao);
+    document.body.appendChild(document.createElement("br"));
+  }
+
+    function mensagemEstadoMental() {
+      let valorSelecionado = document.getElementById("estadoMental").value;
+      let area = document.getElementById("areaResultado");
+      area.innerHTML = "";
+
+      if (valorSelecionado == "Bem") {
+        area.innerHTML = "<div style='width:300px;height:300px;background-color:green;color:white;'>Que bom</div>";
+      } else if (valorSelecionado == "Mais ou Menos") {
+        area.innerHTML = "<div style='width:400px;height:600px;background-color:blue;border:2px solid green;color:yellow;'>Vai Melhorar</div>";
+      } else if (valorSelecionado == "Mal") {
+        area.innerHTML = "<div style='background-color:red;color:white;'>Procure Ajuda</div>";
+        alert("Para psicólogos ligue: (47) 9999 - 9999");
+      }
+    }
+  </script>
+</body>
+</html>

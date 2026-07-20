@@ -12,7 +12,7 @@ $oConjA->addElemento('M');
 if($oConjA->existElemento('C')){
     echo 'Elemento existe';
 } else {
-    echo 'Elemenro não existe';
+    echo 'Elemento não existe';
 }
 
 $oConjB = new Conjunto();
