@@ -9,5 +9,4 @@ class UsuarioCliente extends Usuario{
         echo $sOla.'. Seja bem vindo!';
     }
 }
-
 ?>
