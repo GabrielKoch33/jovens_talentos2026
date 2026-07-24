@@ -10,8 +10,8 @@ require_once 'classContaBancaria.php';
         }
 
         public function adicionarRendimento($fTaxaJuros){
-            $saldoAtual = $this->getSaldo(); 
-            $saldoAtual *= $this->fTaxaJuros/100;
+            $fSaldoAtual = $this->getSaldo(); 
+            $fSaldoAtual *= $this->fTaxaJuros/100;
             /*
             como ContaPoupança é uma filha de ContaBancaria ela herda TODOS os métodos(funções) 
             e atributos(variaveis) da classe pai.

@@ -40,10 +40,9 @@ class Continente {
         foreach($this->listaPaises as $oObjPais){
             if($oObjPais->getPopulacao() > $fMaiorPop){
                 $fMaiorPop = $oObjPais->getPopulacao();
-                $sNomeMaiorPop = $oObjPais->getNome();
             }
         }
-        return /*'Maior População - '.$sNomeMaiorPop.'-'.*/$fMaiorPop;
+        return 
     }
 
     public function menorPopulacao(){
@@ -52,10 +51,9 @@ class Continente {
         foreach($this->listaPaises as $oObjPais){
             if($oObjPais->getPopulacao() < $fMenorPop){
                 $fMenorPop = $oObjPais->getPopulacao();
-                $sNomeMenorPop = $oObjPais->getNome();
             }
         }
-        return /*'Menor População - '.$sNomeMenorPop.'-'.*/ $fMenorPop;
+        return 
     }
 
     public function maiorTerritorio(){
@@ -64,7 +62,6 @@ class Continente {
         foreach($this->listaPaises as $oObjPais){
             if($oObjPais->getDimensao() > $fMaiorTerr){
                 $fMaiorTerr     = $oObjPais->getDimensao();
-                $sNomeMaiorTerr = $oObjPais->getNome();
             }
         }
         return $fMaiorTerr;
@@ -76,7 +73,6 @@ class Continente {
         foreach($this->listaPaises as $oObjPais){
             if($oObjPais->getDimensao() < $fMenorTerr){
                 $fMenorTerr     = $oObjPais->getDimensao();
-                $sNomeMenorTerr = $oObjPais->getNome();
             }
         }
         return $fMenorTerr;

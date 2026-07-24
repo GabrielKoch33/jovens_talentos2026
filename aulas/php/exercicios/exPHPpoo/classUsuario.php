@@ -22,7 +22,7 @@ class Usuario{
 
     public function hello(){
         $username = $this->getNome();
-        echo 'Olá usuário:'. $username.'!';
+        return 'Olá usuário:'. $username.'!';
     }
 
 

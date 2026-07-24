@@ -24,7 +24,7 @@ class Pessoa{
         // 1 - Possuem o mesmo nome?
         // 2 - Pessoa1 e Pessoa2 possuem o mesmo valor no campo 'mae'?
         if ($this->getNome() == $oPessoa2->getNome()){
-            if ($this->getAntecessores()['mae'] == $this->getAntecessores()['mae']){
+            if ($this->getAntecessores()['mae'] == $oPessoa2->getAntecessores()['mae']){
                 return TRUE;
             } else {
                 return FALSE;

@@ -1,6 +1,5 @@
 <?php
 
-require_once 'classClienteFisica.php';
 class ContaBancaria {
 
     private $Cliente;
@@ -27,7 +26,7 @@ class ContaBancaria {
         $this->registraLogExtrato('Saldo Inicial', $fValorSaldoInicial); 
     } 
 
-    public function Sacar($fValor){#setter
+    public function sacar($fValor){#setter
         echo '<br>';
         $this->fSaldoAtual -= $fValor;    
 
@@ -39,7 +38,7 @@ class ContaBancaria {
         echo 'Realizado saque do cliente '.$sNomeCliente_.' no valor de R$'. $fValorSaque_.'. Saldo atual: R$'.$fSaldoAtual_;
     }
 
-    public function Depositar($fValor) {
+    public function depositar($fValor) {
         echo '<br>';
         $this->fSaldoAtual += $fValor; 
         
