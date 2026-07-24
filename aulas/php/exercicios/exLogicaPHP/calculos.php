@@ -75,7 +75,7 @@ class Calculo{
             return $aArrOperacoes;
         } else {
             $fDiv = $iNum1 / $iNum2;
-            array_push($aArrOperacoes, $iSoma, $iSubtr, $iMult, $fDiv); // corrigido: era $iDiv (não existia)
+            array_push($aArrOperacoes, $iSoma, $iSubtr, $iMult, $fDiv);
             return $aArrOperacoes;
         }
     }
