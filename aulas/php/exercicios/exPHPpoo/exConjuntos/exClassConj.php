@@ -32,4 +32,14 @@ print($oConjInter->getConjunto());
 $oConjMenos = $oConjA->menos($oConjB);
 print($oConjMenos->getConjunto());
 
+/*
+U: unicos de A e únicos que B (não repetidos)
+- [A,F,M,B,G,Z]
+
+I: elementos de A que estão em B (não repetidos)
+- [C,I]
+
+M: elementos exclusivos de A
+- [A,F,M]
+*/
 ?>
