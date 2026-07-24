@@ -42,7 +42,7 @@ class Continente {
                 $fMaiorPop = $oObjPais->getPopulacao();
             }
         }
-        return 
+        return TRUE; 
     }
 
     public function menorPopulacao(){
@@ -53,7 +53,7 @@ class Continente {
                 $fMenorPop = $oObjPais->getPopulacao();
             }
         }
-        return 
+        return TRUE;
     }
 
     public function maiorTerritorio(){
