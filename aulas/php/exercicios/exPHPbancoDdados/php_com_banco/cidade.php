@@ -1,3 +1,43 @@
+<?php
+
+require_once 'arq_conectaBanco.php';
+require_once 'funcoes.php';
+
+$oConexao = conectaBanco();
+
+if (!$oConexao){
+    echo "Erro ao conectar ao banco.";
+}
+
+
+if (isset($_POST['nome'])) {
+
+    inserir(
+        $oConexao,
+        "MERCADO.TBCIDADE",
+        "CIDNOME",
+        $_POST['nome']
+    );
+
+    header("Location: cidade.php");
+    exit;
+}
+
+
+if (isset($_GET['deletar'])) {
+
+    deletar(
+        $oConexao,
+        "MERCADO.TBCIDADE",
+        "CIDCODIGO",
+        $_GET['deletar']
+    );
+
+    header("Location: cidade.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,10 +45,6 @@
     <title>Cidade</title>
 </head>
 <body>
-    <?php
-    require_once 'arq_conectaBanco.php'
-    ?>
-    <!-- MENU DE NAVEGAÇÃO -->
     <div style="display: flex">
         <a href="categoria.php">Categoria</a> |
         <a href="departamento.php">Departamento</a> |
@@ -21,33 +57,41 @@
 
     <hr>
 
-    <!-- LISTAGEM -->
     <fieldset>
-        <h4>Listagem de Cidades</h4>
-        <table border="1" cellpadding="5" cellspacing="0">
+        <h4>Listagem de Categorias</h4>
+
+        <table border="1" cellpadding="5" >
             <tr>
                 <th>Código</th>
-                <th>Nome</th>
+                <th>Descrição</th>
                 <th>Ações</th>
             </tr>
 
-            <!-- AQUI ENTRA O foreach/while COM OS REGISTROS DO BANCO -->
-            <!--
-            <tr>
-                <td><?php echo $linha['codigo']; ?></td>
-                <td><?php echo $linha['descricao']; ?></td>
-                <td><a href="cidade.php?deletar=<?php echo $linha['codigo']; ?>">Deletar</a></td>
-            </tr>
-            -->
+            <?php
+            $sSelect = "SELECT CIDCODIGO, CIDNOME FROM MERCADO.TBCLIENTE";
+            $oResultado = pg_query($oConexao, $sSelect);
 
+            while ($oLinha = pg_fetch_assoc($oResultado)) {
+            ?>
+                <tr>
+                    <td><?php echo $oLinha['cidcodigo']; ?></td>
+                    <td><?php echo $oLinha['cidnome']; ?></td>
+                    <td>
+                        <a href="cidade.php?deletar=<?php echo $oLinha['cidcodigo']; ?>">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
         </table>
     </fieldset>
 
     <br>
 
-    <!-- CADASTRO -->
     <fieldset>
-        <h4>Cadastro de cidade</h4>
+        <h4>Cadastro de Cidade</h4>
         <form action="cidade.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome">

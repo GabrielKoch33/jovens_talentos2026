@@ -1,3 +1,43 @@
+<?php
+
+require_once 'arq_conectaBanco.php';
+require_once 'funcoes.php';
+
+$oConexao = conectaBanco();
+
+if (!$oConexao){
+    echo "Erro ao conectar ao banco.";
+}
+
+
+if (isset($_POST['nome'])) {
+
+    inserir(
+        $oConexao,
+        "MERCADO.TBCATEGORIA",
+        "CATDESCRICAO",
+        $_POST['nome']
+    );
+
+    header("Location: categoria.php");
+    exit;
+}
+
+
+if (isset($_GET['deletar'])) {
+
+    deletar(
+        $oConexao,
+        "MERCADO.TBCATEGORIA",
+        "CATCODIGO",
+        $_GET['deletar']
+    );
+
+    header("Location: categoria.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,15 +45,6 @@
     <title>Categoria</title>
 </head>
 <body>
-    <?php
-    require_once 'arq_conectaBanco.php'
-    $oConexao = conectaBanco()
-    if ($oConexao == FALSE){
-        echo 'ERRO AO CONECTAR NO BANCO!'
-    } else
-        echo 'CONEXÃO ESTABELECIDA!'
-    
-    ?>
     <div style="display: flex">
         <a href="categoria.php">Categoria</a> |
         <a href="departamento.php">Departamento</a> |
@@ -23,35 +54,42 @@
         <a href="funcionario.php">Funcionário</a> |
         <a href="produto.php">Produto</a>
     </div>
+
     <hr>
 
-    <!-- LISTAGEM -->
     <fieldset>
         <h4>Listagem de Categorias</h4>
-        <table border="1" cellpadding="5" cellspacing="0">
+
+        <table border="1" cellpadding="5" >
             <tr>
                 <th>Código</th>
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
+
             <?php
-            $sSelect = "SELECT * FROM MERCADO.TBCATEGORIA";
-            $oResultado = pg_query($oConexao,$sSelect);
+            $sSelect = "SELECT CATCODIGO, CATDESCRICAO FROM MERCADO.TBCATEGORIA";
+            $oResultado = pg_query($oConexao, $sSelect);
+
+            while ($oLinha = pg_fetch_assoc($oResultado)) {
             ?>
-            <?php while ($oLinha = pg_fetch_assoc($oResultado)){
-            <tr>
-                <td><?php echo $oLinha['codigo']; ?></td>
-                <td><?php echo $oLinha['descricao']; ?></td>
-                <td><a href="categoria.php?deletar=<?php echo $oLinha['codigo']; ?>">Deletar</a></td>
-            </tr>
-           }
-            <?php endwhile;?>
+                <tr>
+                    <td><?php echo $oLinha['catcodigo']; ?></td>
+                    <td><?php echo $oLinha['catdescricao']; ?></td>
+                    <td>
+                        <a href="categoria.php?deletar=<?php echo $oLinha['catcodigo']; ?>">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
         </table>
     </fieldset>
 
     <br>
 
-    <!-- CADASTRO -->
     <fieldset>
         <h4>Cadastro de Categoria</h4>
         <form action="categoria.php" method="post">
@@ -60,9 +98,6 @@
             <br><br>
             <input type="submit" value="Enviar">
         </form>
-        <?php
-        
-        ?>
     </fieldset>
 
 </body>

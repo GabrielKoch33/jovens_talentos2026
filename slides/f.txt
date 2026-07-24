@@ -1,0 +1,32 @@
+pg_connect() <- recebe uma string contendo host, porta, user, senha e nome do banco
+                <- caso falhe em se conectar, retorna FALSE
+                <- caso dê certo, retorna um objeto 
+
+$oResultado = pg_query(objeto_conexao,string_comando_sql)
+                <- usamos o objeto gerado anteriormente juntamente com um SQL escrito para retornar algo do banco
+                <- o resultado da consulta volta como um objeto
+
+$aResultado = pg_fetch_assoc($oResultado)
+                <- esse comando transforma o objeto resultado (que é uma tabela) em um array associativo
+                <- [1,Ana]...[2,Luiz]...
+
+
+para percorrermos cada registro da tabela usamos a seguinte sintaxe:
+
+$aData = []
+while ($aResultado = pg_fetch_assoc($oResultado))
+        $aData[] = $aResultado
+
+Quando acabar os registros o pg_fetch_assoc retornará FALSE, fazendo o while parar
+aData será o resultado final, um array com arrays dentro, onde cada subarray representa uma linha
+
+
+var_dump($aData)
+        <- Ao fim, usamos o var_dump para escrever o array associativo
+
+comandos como:
+    pg_last_error($objeto_conexao) retorna o ultimo erro ocasionado no banco de dados
+
+    e
+
+    pg_scape_string($sSQLconflituoso) ajuda a tratar strings com muitas "" e '', evitando que caracteres quebrem a consulta

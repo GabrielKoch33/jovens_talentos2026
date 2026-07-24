@@ -1,3 +1,43 @@
+<?php
+
+require_once 'arq_conectaBanco.php';
+require_once 'funcoes.php';
+
+$oConexao = conectaBanco();
+
+if (!$oConexao){
+    echo "Erro ao conectar ao banco.";
+}
+
+
+if (isset($_POST['nome'])) {
+
+    inserir(
+        $oConexao,
+        "MERCADO.TBDEPARTAMENTO",
+        "DPTDESCRICAO",
+        $_POST['nome']
+    );
+
+    header("Location: produto.php");
+    exit;
+}
+
+
+if (isset($_GET['deletar'])) {
+
+    deletar(
+        $oConexao,
+        "MERCADO.TBDEPARTAMENTO",
+        "DPTCODIGO",
+        $_GET['deletar']
+    );
+
+    header("Location: produto.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,10 +45,6 @@
     <title>Produto</title>
 </head>
 <body>
-    <?php
-    require_once 'arq_conectaBanco.php'
-    ?>
-    <!-- MENU DE NAVEGAÇÃO -->
     <div style="display: flex">
         <a href="categoria.php">Categoria</a> |
         <a href="departamento.php">Departamento</a> |
@@ -21,54 +57,77 @@
 
     <hr>
 
-    <!-- LISTAGEM -->
     <fieldset>
-        <h4>Listagem de Produtos</h4>
-        <table border="1" cellpadding="5" cellspacing="0">
+        <h4>Listagem de Produto</h4>
+
+        <table border="1" cellpadding="5" >
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Valor</th>
                 <th>Estoque</th>
-                <th>Código - Categoria</th>
-                <th>Nome - Categoria</th>
-                <th>Código - Fornecedor</th>
-                <th>Nome - Fornecedor</th>
-                <th>Ações</th>
+                <th>Descrição Categoria</th>                
             </tr>
 
-            <!-- AQUI ENTRA O foreach/while COM OS REGISTROS DO BANCO -->
-            <!--
-            <tr>
-                <td><?php echo $linha['codigo']; ?></td>
-                <td><?php echo $linha['descricao']; ?></td>
-                <td><a href="categoria.php?deletar=<?php echo $linha['codigo']; ?>">Deletar</a></td>
-            </tr>
-            -->
+            <?php
+            $sSelect = "SELECT
+                            P.PROCODIGO,
+                            P.PRONOME,
+                            P.PRODESCRICAO,
+                            P.PROVALOR,
+                            P.PROESTOQUE,
+                            C.CATDESCRICAO,
+                            F.FORNOME
+                        FROM MERCADO.TBPRODUTO P
+                        INNER JOIN MERCADO.TBCATEGORIA C
+                        ON P.CATCODIGO = C.CATCODIGO
+                        INNER JOIN MERCADO.TBFORNECEDOR F
+                        ON P.FORCODIGO = F.FORCODIGO
+                        ORDER BY P.PROCODIGO
+                        ";
 
+            $oResultado = pg_query($oConexao, $sSelect);
+
+            while ($oLinha = pg_fetch_assoc($oResultado)) {
+            ?>
+                <tr>
+                    <td><?php echo $oLinha['procodigo']; ?></td>
+                    <td><?php echo $oLinha['pronome']; ?></td>
+                    <td><?php echo $oLinha['prodescricao']; ?></td>
+                    <td><?php echo $oLinha['provalor']; ?></td>
+                    <td><?php echo $oLinha['proestoque']; ?></td>
+                    <td><?php echo $oLinha['catedescricao']; ?></td>
+                    <td><?php echo $oLinha['fornome']; ?></td>
+                    <td>
+                        <a href="produto.php?deletar=<?php echo $oLinha['cidcodigo']; ?>">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
         </table>
     </fieldset>
 
     <br>
 
-    <!-- CADASTRO -->
     <fieldset>
         <h4>Cadastro de Produto</h4>
-        <form action="categoria.php" method="post">
+        <form action="produto.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome">
             <br><br>
-            <label for="cpf">Cnpj: </label>
-            <input type="text" name="cpf" id="cpf">
+            <label for="nome">Descrição:</label>
+            <input type="text" name="desc" id="desc">
             <br><br>
-            <label for="categoria">Categoria: </label>
-            <select name="categoria" id="categoria">
+            <label for="nome">Valor:</label>
+            <input type="text" name="valor" id="valor">
             <br><br>
-            <label for="fornecedor">Fornecedor: </label>
-            <select name="fornecedor" id="fornecedor">
-                <!-- Opções de cidade pegas pelo banco -->
-            </select>
+            <label for="nome">Estoque:</label>
+            <input type="text" name="estoque" id="estoque">
+            <br><br>                                    
             <input type="submit" value="Enviar">
         </form>
     </fieldset>

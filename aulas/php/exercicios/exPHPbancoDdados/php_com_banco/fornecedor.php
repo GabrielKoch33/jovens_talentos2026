@@ -1,14 +1,50 @@
+<?php
+
+require_once 'arq_conectaBanco.php';
+require_once 'funcoes.php';
+
+$oConexao = conectaBanco();
+
+if (!$oConexao){
+    echo "Erro ao conectar ao banco.";
+}
+
+
+if (isset($_POST['nome'])) {
+
+    inserir(
+        $oConexao,
+        "MERCADO.TBDEPARTAMENTO",
+        "DPTDESCRICAO",
+        $_POST['nome']
+    );
+
+    header("Location: departamento.php");
+    exit;
+}
+
+
+if (isset($_GET['deletar'])) {
+
+    deletar(
+        $oConexao,
+        "MERCADO.TBDEPARTAMENTO",
+        "DPTCODIGO",
+        $_GET['deletar']
+    );
+
+    header("Location: departamento.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Fornecedor</title>
+    <title>Departamento</title>
 </head>
 <body>
-    <?php
-    require_once 'arq_conectaBanco.php'
-    ?>
-    <!-- MENU DE NAVEGAÇÃO -->
     <div style="display: flex">
         <a href="categoria.php">Categoria</a> |
         <a href="departamento.php">Departamento</a> |
@@ -21,47 +57,54 @@
 
     <hr>
 
-    <!-- LISTAGEM -->
     <fieldset>
-        <h4>Listagem de Fornecedores</h4>
-        <table border="1" cellpadding="5" cellspacing="0">
+        <h4>Listagem de Departamento</h4>
+
+        <table border="1" cellpadding="5" >
             <tr>
                 <th>Código</th>
-                <th>Nome</th>
-                <th>Cnpj</th>
-                <th>Cidade - Código</th>
-                <th>Cidade - Nome</th>
+                <th>Descrição</th>
                 <th>Ações</th>
             </tr>
 
-            <!-- AQUI ENTRA O foreach/while COM OS REGISTROS DO BANCO -->
-            <!--
-            <tr>
-                <td><?php echo $linha['codigo']; ?></td>
-                <td><?php echo $linha['descricao']; ?></td>
-                <td><a href="categoria.php?deletar=<?php echo $linha['codigo']; ?>">Deletar</a></td>
-            </tr>
-            -->
+            <?php
+            $sSelect = "SELECT
+                            F.FORCODIGO,
+                            F.FORNOME,
+                            F.FORCNPJ,
+                            C.CIDNOME
+                        FROM MERCADO.TBFORNECEDOR F
+                        INNER JOIN MERCADO.TBCIDADE C
+                        ON F.CIDCODIGO = C.CIDCODIGO
+                        ORDER BY F.FORCODIGO
+                        ";
+            $oResultado = pg_query($oConexao, $sSelect);
 
+            while ($oLinha = pg_fetch_assoc($oResultado)) {
+            ?>
+                <tr>
+                    <td><?php echo $oLinha['dptcodigo']; ?></td>
+                    <td><?php echo $oLinha['dptdescricao']; ?></td>
+                    <td>
+                        <a href="departamento.php?deletar=<?php echo $oLinha['cidcodigo']; ?>">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
         </table>
     </fieldset>
 
     <br>
 
-    <!-- CADASTRO -->
     <fieldset>
-        <h4>Cadastro de Fornecedor</h4>
-        <form action="categoria.php" method="post">
+        <h4>Cadastro de Departamento</h4>
+        <form action="departamento.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome">
             <br><br>
-            <label for="cpf">CPF: </label>
-            <input type="text" name="cpf" id="cpf">
-            <br><br>
-            <label for="cidade">Cidade:</label>
-            <select name="nome_cidade" id="nome_cidade">
-                <!-- Opções de cidade pegas pelo banco -->
-            </select>
             <input type="submit" value="Enviar">
         </form>
     </fieldset>
