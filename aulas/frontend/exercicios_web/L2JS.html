@@ -7,8 +7,8 @@
   .quadradoIndice {
     width: 30px;
     height: 30px;
-    /*display: inline-block;*/
     border: 1px solid black;
+    padding: 5px;
     text-align: center;
     font-size: 12px;
   }
@@ -36,7 +36,7 @@
   <input type="number" id="num2Ex3" onchange="somarEx3()">
   <br><br>
   <label for="somaEx3">Soma</label>
-  <input type="text" id="somaEx3" readonly disabled value="0">
+  <input type="text" id="somaEx3" readonly>
 
   <hr>
 
@@ -50,12 +50,17 @@
 
   <!-- 5 -->
   <button onclick="criarDivColorida()">Clique aqui</button>
-  <div id="areaEx5"></div>
+  <div id="areaEx5" style="display: flex; flex-direction: row;"></div>
 
   <script>
 
     // 1
     function somarEx1() {
+      /*
+      DOM é uma arvore que representa os elementos de uma página web
+      com ele podemos pegar elementos específicos de uma página, captando
+      assim seus valores e propriedades
+      */
       let valor1 = document.getElementById("num1").value;
       let valor2 = document.getElementById("num2").value;
 
@@ -68,6 +73,11 @@
     }
 
     // 2
+    /*
+    .value VS .innerHTML
+    ->value: pega um valor de um input ou submit
+    ->innerHTML: usado para alterar ou manipular elementos html da página
+    */
     function somarEx2() {
       let valor1 = document.getElementById("num1Ex2").value;
       let valor2 = document.getElementById("num2Ex2").value;
@@ -83,15 +93,16 @@
 
     // 3
     function somarEx3() {
+      /*
+      tudo que vem do DOM.value vem como 'string', por isso usamos Number()
+      */
       let valor1 = document.getElementById("num1Ex3").value;
       let valor2 = document.getElementById("num2Ex3").value;
       let campoSoma = document.getElementById("somaEx3");
+      // como o campo do input é type="number", não há risco de entrar letras ou vazios
 
-      if (valor1 == "" || valor2 == "" || isNaN(valor1) || isNaN(valor2)) {
-        campoSoma.value = 0;
-      } else {
-        campoSoma.value = Number(valor1) + Number(valor2);
-      }
+      campoSoma.value = Number(valor1) + Number(valor2);
+
     }
 
     // 4
@@ -100,7 +111,7 @@
     let area = document.getElementById("areaDivsEx4");
 
     // limpa a área antes de gerar, sempre — assim não precisa de variável de controle
-    area.innerHTML = "";
+    area.innerHTML = " ";
 
     let quantidade = Number(document.getElementById("quantidade").value);
 
@@ -117,6 +128,9 @@
                  "green", "blue", "magenta", "tomato", "orange", "olive", "navy"];
 
     function criarDivColorida() {
+      // math.random() um valor decimal entre 0 e 1
+      // * length multiplica o 1 pelo tamanho do vetor (agora vai de 0 a 10)
+      // math.floor() pega o decimal (ex: 2.789) e arredonda para baixo (ex: 2)
       let corDeFundo = cores[Math.floor(Math.random() * cores.length)];
       let corDaBorda = cores[Math.floor(Math.random() * cores.length)];
 
@@ -125,9 +139,11 @@
       div.style.height = "20px";
       div.style.backgroundColor = corDeFundo;
       div.style.border = "3px solid " + corDaBorda;
-      div.style.marginTop = "5px";
+      div.style.margin = "5px";
 
       document.getElementById("areaEx5").appendChild(div);
+      // document.createElement cria o elemento na memória, porém ainda invisível
+      // document...appendChild() insere o elemento 'div' na página
     }
 
   </script>

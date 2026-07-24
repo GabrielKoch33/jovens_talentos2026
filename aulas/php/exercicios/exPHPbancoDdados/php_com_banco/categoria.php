@@ -7,6 +7,12 @@
 <body>
     <?php
     require_once 'arq_conectaBanco.php'
+    $oConexao = conectaBanco()
+    if ($oConexao == FALSE){
+        echo 'ERRO AO CONECTAR NO BANCO!'
+    } else
+        echo 'CONEXÃO ESTABELECIDA!'
+    
     ?>
     <div style="display: flex">
         <a href="categoria.php">Categoria</a> |
@@ -17,7 +23,6 @@
         <a href="funcionario.php">Funcionário</a> |
         <a href="produto.php">Produto</a>
     </div>
-
     <hr>
 
     <!-- LISTAGEM -->
@@ -29,16 +34,18 @@
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
-
-            <!-- AQUI ENTRA O foreach/while COM OS REGISTROS DO BANCO -->
-            <!--
+            <?php
+            $sSelect = "SELECT * FROM MERCADO.TBCATEGORIA";
+            $oResultado = pg_query($oConexao,$sSelect);
+            ?>
+            <?php while ($oLinha = pg_fetch_assoc($oResultado)){
             <tr>
-                <td><?php echo $linha['codigo']; ?></td>
-                <td><?php echo $linha['descricao']; ?></td>
-                <td><a href="categoria.php?deletar=<?php echo $linha['codigo']; ?>">Deletar</a></td>
+                <td><?php echo $oLinha['codigo']; ?></td>
+                <td><?php echo $oLinha['descricao']; ?></td>
+                <td><a href="categoria.php?deletar=<?php echo $oLinha['codigo']; ?>">Deletar</a></td>
             </tr>
-            -->
-
+           }
+            <?php endwhile;?>
         </table>
     </fieldset>
 
