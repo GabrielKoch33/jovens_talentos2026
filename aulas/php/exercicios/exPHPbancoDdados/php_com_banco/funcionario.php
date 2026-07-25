@@ -84,7 +84,8 @@ if (isset($_GET['deletar'])) {
             while ($oLinha = pg_fetch_assoc($oResultado)) {
             ?>
                 <tr>
-                    <td><?php echo $oLinha['dptcodigo']; ?></td>
+                    <td><?php echo $oLinha['fcncodigo']; ?></td>
+                    <td><?php echo $oLinha['fcnnome']; ?></td>
                     <td><?php echo $oLinha['dptdescricao']; ?></td>
                     <td>
                         <a href="departamento.php?deletar=<?php echo $oLinha['cidcodigo']; ?>">

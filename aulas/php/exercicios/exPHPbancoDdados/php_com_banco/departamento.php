@@ -15,7 +15,7 @@ if (isset($_POST['nome'])) {
     inserir(
         $oConexao,
         "MERCADO.TBDEPARTAMENTO",
-        "DPTDESCRICAO",
+        "DPTNOME",
         $_POST['nome']
     );
 
