@@ -29,7 +29,7 @@
                 $fN3 = $_POST['n3'];
                 $fN4 = $_POST['n4'];
 
-                $fMedia = $fN1 + $fN2 + $fN3 + $fN4;
+                $fMedia = ($fN1 + $fN2 + $fN3 + $fN4)/4;
 
                 if ($fMedia >= 7){
                     echo $fMedia. '<br>';
