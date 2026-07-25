@@ -14,8 +14,8 @@ if (isset($_POST['nome'])) {
 
     inserir(
         $oConexao,
-        "MERCADO.TBDEPARTAMENTO",
-        "DPTDESCRICAO",
+        "MERCADO.FTBFUNCIONARIO",
+        "FCNNOME",
         $_POST['nome']
     );
 
@@ -28,8 +28,8 @@ if (isset($_GET['deletar'])) {
 
     deletar(
         $oConexao,
-        "MERCADO.TBDEPARTAMENTO",
-        "DPTCODIGO",
+        "MERCADO.FTBFUNCIONARIO",
+        "FCNCODIGO",
         $_GET['deletar']
     );
 
@@ -42,7 +42,7 @@ if (isset($_GET['deletar'])) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Departamento</title>
+    <title>Funcionário</title>
 </head>
 <body>
     <div style="display: flex">
@@ -58,12 +58,13 @@ if (isset($_GET['deletar'])) {
     <hr>
 
     <fieldset>
-        <h4>Listagem de Departamento</h4>
+        <h4>Listagem de Funcionários</h4>
 
         <table border="1" cellpadding="5" >
             <tr>
                 <th>Código</th>
-                <th>Descrição</th>
+                <th>Nome</th>
+                <th>Departamento</th>
                 <th>Ações</th>
             </tr>
 
@@ -100,10 +101,13 @@ if (isset($_GET['deletar'])) {
     <br>
 
     <fieldset>
-        <h4>Cadastro de Departamento</h4>
-        <form action="departamento.php" method="post">
+        <h4>Cadastro de Funcionarios</h4>
+        <form action="funcionarios.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome">
+            <br><br>
+            <label for="nome">ID Departamento:</label>
+            <input type="number" name="dpt" id="dpt">
             <br><br>
             <input type="submit" value="Enviar">
         </form>

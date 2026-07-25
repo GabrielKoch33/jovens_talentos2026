@@ -14,8 +14,8 @@ if (isset($_POST['nome'])) {
 
     inserir(
         $oConexao,
-        "MERCADO.TBDEPARTAMENTO",
-        "DPTDESCRICAO",
+        "MERCADO.TBPRODUTO",
+        "PRONOME",
         $_POST['nome']
     );
 
@@ -28,8 +28,8 @@ if (isset($_GET['deletar'])) {
 
     deletar(
         $oConexao,
-        "MERCADO.TBDEPARTAMENTO",
-        "DPTCODIGO",
+        "MERCADO.TBPRODUTO",
+        "PROCODIGO",
         $_GET['deletar']
     );
 
